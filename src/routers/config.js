@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import { lazy } from 'react';
 
-// import BasicLayout from '@/layouts/BasicLayout';
+import BasicLayout from '@/layouts/BasicLayout';
 import BlankLayout from '@/layouts/BlankLayout';
 
 const config = [
@@ -16,6 +16,21 @@ const config = [
         icon: 'setting', // 菜单图标
         component: lazy(() => import('@/pages/Login')), // 懒加载 路由组件
       },
+      {
+        path: '/',
+        // exact: true,
+        component: BasicLayout, // 基本布局
+        childRoutes: [
+          {
+            path: '/welcome',
+            name: '欢迎页',
+            icon: 'smile',
+            component: lazy(() => import('@/pages/Welcome')),
+          },
+          { path: '/', exact: true, redirect: '/welcome' },
+          { path: '*', exact: true, redirect: '/exception/404' },
+        ]
+      }
     ],
   },
 ];
