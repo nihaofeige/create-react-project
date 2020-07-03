@@ -10,7 +10,9 @@ export default class GlobalStore {
     // 当前用户信息
     loginName: 'nowThen',
   };
-
+  @action.bound getUserName(name) {
+    this.userInfo.loginName = name
+  }
   @action.bound toggleCollapsed() {
     this.collapsed = !this.collapsed;
   }

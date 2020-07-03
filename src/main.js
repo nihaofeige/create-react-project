@@ -5,7 +5,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
-import './styles/main.css';
+import './styles/main.less';
 import AppRouter from './routers/AppRouter';
 
 moment.locale('zh-cn');
