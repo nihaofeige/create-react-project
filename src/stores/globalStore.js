@@ -2,7 +2,7 @@ import { observable, action } from 'mobx';
 // import request from '@/services/request';
 
 export default class GlobalStore {
-  @observable appTitle = '服务管理平台';
+  @observable appTitle = '后台管理平台';
 
   @observable collapsed = false; // 菜单收起展开
 
