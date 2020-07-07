@@ -27,6 +27,12 @@ const config = [
             icon: 'smile',
             component: lazy(() => import('@/pages/Welcome')),
           },
+          {
+            path: '/unordered-list',
+            name: '列表页',
+            icon: 'unordered-list',
+            component: lazy(() => import('@/pages/Table')),
+          },
           { path: '/', exact: true, redirect: '/welcome' },
           { path: '*', exact: true, redirect: '/exception/404' },
         ]

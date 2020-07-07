@@ -26,7 +26,7 @@ const instance = axios.create({
   // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
   transformResponse: [
     function(data) {
-      console.log(data);
+      // console.log(data);
       // 对 data 进行任意转换处理
       return JSON.parse(data);
     },
@@ -125,9 +125,10 @@ const request = async function(opt) {
   options.baseURL = autoMatch(options.prefix);
   try {
     const res = await instance(options);
-    // console.log(res);
+    console.log(res,options);
     if (!res.success && options.ifHandleError) {
       // 自定义参数，是否允许全局提示错误信息
+      console.log(".......")
       message.error(res.message || '请求处理失败！');
     }
     return res;

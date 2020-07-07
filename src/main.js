@@ -8,6 +8,8 @@ import 'moment/locale/zh-cn';
 import './styles/main.less';
 import AppRouter from './routers/AppRouter';
 
+require('./mock/index.js')
+
 moment.locale('zh-cn');
 
 const App = () => (

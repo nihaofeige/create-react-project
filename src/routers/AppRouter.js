@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import LoadingPage from '@/components/LoadingPage';
 import config from './config';
-
+const token = JSON.parse(sessionStorage.getItem('reactUserName'))
 const renderRoutes = routes => {
     if (!Array.isArray(routes)) {
         return null;
@@ -24,7 +24,6 @@ const renderRoutes = routes => {
                         />
                     );
                 }
-
                 return (
                     <Route
                         key={route.path || index}
@@ -51,6 +50,7 @@ const renderRoutes = routes => {
 
 const AppRouter = () => {
     // console.log(renderRoutes(config));
+    const token = JSON.parse(sessionStorage.getItem('reactUserName'))
     return <Router>{renderRoutes(config)}</Router>;
 };
 

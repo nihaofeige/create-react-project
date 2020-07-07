@@ -15,11 +15,13 @@ module.exports = merge(commonConfig, {
     compress: true,
     // 接口代理转发
     proxy: {
-      '/testapi': {
-        target: 'https://www.easy-mock.com/mock/5dff0acd5b188e66c6e07329/react-template',
+      '/api': {
+        target: 'http://localhost:9000',
         changeOrigin: true,
         secure: false,
-        pathRewrite: { '^/testapi': '' },
+        // pathRewrite: { 
+        //   '^/api': '' 
+        // },
       },
     },
   },

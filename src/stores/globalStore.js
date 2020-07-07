@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-// import request from '@/services/request';
+// import request from '@/services/request'
 
 export default class GlobalStore {
   @observable appTitle = '后台管理平台';
@@ -8,7 +8,7 @@ export default class GlobalStore {
 
   @observable userInfo = {
     // 当前用户信息
-    loginName: 'nowThen',
+    loginName: 'user',
   };
   @action.bound getUserName(name) {
     this.userInfo.loginName = name

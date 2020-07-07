@@ -19,6 +19,7 @@ const LoginPage = (props) => {
             if (!err) {
                 console.log('登录信息 ', values);
                 globalStore.getUserName(values.username)
+                sessionStorage.setItem('reactUserName', JSON.stringify(values.username));
                 message.success('登录成功，即将跳转...', 2);
                 setTimeout(() => {
                     history.push('/');
