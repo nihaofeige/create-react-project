@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Drawer, Form, Button, Col, Row, Input, Upload, DatePicker, Icon } from 'antd';
 import { observer } from 'mobx-react';
 import Store from './store';
+import Moment from 'moment'
 import { toJS } from 'mobx';
 
 const Item = Form.Item
+
 function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
@@ -12,7 +14,9 @@ function getBase64(img, callback) {
 }
 
 const NewForm = (props) => {
-    console.log(props, "<><><><><>")
+
+    console.log(props.form.getFieldsValue().date, "<><><><><>")
+
     const pageStore = useContext(Store)
 
     const [state, setState] = useState({
@@ -21,13 +25,27 @@ const NewForm = (props) => {
         imageUrl: ''
     });
 
+    useEffect(() => {
+        setBaseInfo(props.formData)
+    }, []);
+
     function onClose() {
         setState({ visible: false });
         props.onShow(false)
     }
-    function onsubmit() {
-       const info = props.form.getFieldsValue()
-       console.log("info", info)
+    function onsubmit(e) {
+        const info = props.form.getFieldsValue()
+        e.preventDefault();
+        props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                const data = values
+                data.date = Moment(data.date).format("YYYY-MM-DD HH:mm:ss")
+                pageStore.setFormData(data)
+                onClose()
+            }else {
+                message.warning('请补全信息数据');  
+            }
+        });
     }
     function beforeUpload(file) {
         const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
@@ -45,7 +63,6 @@ const NewForm = (props) => {
             setState({ loading: true });
             return;
         }
-        console.log(info)
         if (info.file.status === 'done') {
             getBase64(info.file.originFileObj, imageUrl =>
                 setState({
@@ -55,6 +72,21 @@ const NewForm = (props) => {
             );
         }
     }
+    function setBaseInfo(data) {
+        if(JSON.stringify(props.formData) === "{}") return
+        const { form } = props;
+        Object.keys(form.getFieldsValue()).forEach(key => {
+            const obj = {};
+            if (data[key]) {
+                if(key === 'date'){
+                   obj[key] = Moment(data[key]) ||null
+                }else{
+                   obj[key] = data[key] || null; 
+                }
+            }
+            form.setFieldsValue(obj);
+        });
+    };
 
     const { getFieldDecorator } = props.form;
 
@@ -65,17 +97,24 @@ const NewForm = (props) => {
         </div>
     );
     function normFile(e) {
-        console.log(e, "???????")
         if (Array.isArray(e)) {
             return e;
         }
-        if(e.file.response) {
+        if (e.file.response) {
             return e.file.response.url
         }
-        // return e && e.fileList;
     }
-    const { imageUrl } = state;
-
+    const formItemLayout = {
+        labelCol: {
+            xs: { span: 24 },
+            sm: { span: 4 },
+        },
+        wrapperCol: {
+            xs: { span: 24 },
+            sm: { span: 16 },
+        },
+    };
+    
     return (
         <div className="new-form">
             <Drawer
@@ -85,7 +124,7 @@ const NewForm = (props) => {
                 visible={props.visible}
                 bodyStyle={{ paddingBottom: 80 }}
             >
-                <Form layout="horizontal">
+                <Form layout="horizontal" {...formItemLayout}>
                     <Row gutter={16}>
                         <Item label="姓名">
                             {getFieldDecorator('name', {
@@ -121,12 +160,16 @@ const NewForm = (props) => {
                             </Upload>)}
                         </Item>
                         <Item label="日期">
-                            {getFieldDecorator('date')(
-                                <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
+                            {getFieldDecorator('date',{
+                               initialValue: Moment(props.form.getFieldsValue().date)
+                            })(
+                                <DatePicker
+                                  showTime 
+                                  format={"YYYY-MM-DD HH:mm:ss"} />,
                             )}
                         </Item>
                         <Item label="ID">
-                            {getFieldDecorator('describe', {
+                            {getFieldDecorator('id', {
                             })(<Input placeholder="请填写ID" />)}
                         </Item>
                     </Row>

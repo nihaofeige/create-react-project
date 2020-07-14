@@ -50,5 +50,11 @@ class TableStore {
         let end = this.size * this.current;
         return data.slice(start, end);
     }
+    @action.bound
+    setFormData(data) {
+        console.log(data, "store")
+        this.tableData.push(data)
+        this.total = this.tableData.length
+    }
 }
 export default createContext(new TableStore());

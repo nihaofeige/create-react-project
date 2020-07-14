@@ -10,7 +10,7 @@ import './style.less';
 const TablePage = () => {
     const pageStore = useContext(Store);
 
-    const [state, setState] = useState({ visible: false });
+    const [state, setState] = useState({ visible: false, formData: {} });
 
     useEffect(() => {
         pageStore.setTable();
@@ -49,19 +49,22 @@ const TablePage = () => {
             key: 'action',
             render: (text, record) => (
                 <span className="operation">
-                    <Button type="link" block onClick={() => pageStore.delFolder(record)}>编辑</Button>
+                    <Button type="link" block onClick={() => editFile(record)}>编辑</Button>
                     <Divider type="vertical" style={{ background: '#ff5722' }} />
                     <Button type="link" block>Delete</Button>
                 </span>
             )
         }
     ];
+    function editFile(row) {
+        console.log("编辑")
+        setState({ visible: true, formData: row  })
+    }
     function onShow(status) {
         setState({ visible: status })
     }
     function showDrawer() {
-        console.log("..........")
-        setState({ visible: true })
+        setState({ visible: true, formData: {} })
     }
     return (
         <div className="table-page">
@@ -83,8 +86,9 @@ const TablePage = () => {
                 current={pageStore.current}
                 defaultCurrent={1}
                 total={pageStore.total}
+                showTotal={total => `共 ${total} 条数据`}
             />
-            {state.visible ? <NewForm visible={state.visible} onShow={onShow} /> : null}
+            {state.visible ? <NewForm visible={state.visible} onShow={onShow} formData={state.formData}/> : null}
         </div>
     )
 }
