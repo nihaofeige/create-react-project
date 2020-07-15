@@ -18,7 +18,12 @@ const App = () => (
     </ConfigProvider>
 );
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(
+    // <Provider >
+        <App />
+    // </Provider>
+    ,
+    document.getElementById('app'));
 
 // 热更新
 if (module.hot) {

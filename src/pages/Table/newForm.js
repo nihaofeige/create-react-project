@@ -3,7 +3,6 @@ import { Drawer, Form, Button, Col, Row, Input, Upload, DatePicker, Icon } from 
 import { observer } from 'mobx-react';
 import Store from './store';
 import Moment from 'moment'
-import { toJS } from 'mobx';
 
 const Item = Form.Item
 

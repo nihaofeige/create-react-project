@@ -1,0 +1,43 @@
+.article-details {
+  padding: 20px;
+  background: #f8f9f9;
+}
+.article-details .section-bd {
+  background: #ebf0f2;
+  line-height: 1;
+  padding: 10px;
+}
+.article-details .section-hd {
+  line-height: 20px;
+  padding: 10px 13px;
+}
+.article-details .section-intro .section-bd {
+  padding: 20px 13px 10px;
+}
+.article-details ul,
+.article-details li {
+  list-style: none;
+}
+.article-details .chapters {
+  padding: 20px;
+}
+.article-details .chapters .chapters-ul {
+  margin-left: 0px;
+  padding: 0px;
+}
+.article-details .chapters .chapters-ul .section-chapters-bd:hover {
+  background: #ebf0f2;
+}
+.article-details .chapters .commentCount .on-sale-time {
+  color: #a6a6a6;
+  font-size: 12px;
+}
+.article-details .chapters .commentCount .meta-right {
+  float: right;
+}
+.article-details .chapters .commentCount .readCount,
+.article-details .chapters .commentCount .commentCount {
+  font-size: 12px;
+  color: #a6a6a6;
+  margin-left: 10px;
+}

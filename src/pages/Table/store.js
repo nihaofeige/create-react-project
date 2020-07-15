@@ -53,7 +53,7 @@ class TableStore {
     @action.bound
     setFormData(data) {
         console.log(data, "store")
-        this.tableData.push(data)
+        this.tableData.unshift(data)
         this.total = this.tableData.length
     }
 }

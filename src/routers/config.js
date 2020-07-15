@@ -33,6 +33,12 @@ const config = [
             icon: 'unordered-list',
             component: lazy(() => import('@/pages/Table')),
           },
+          {
+            path: '/article-details',
+            name: '文章',
+            icon: 'snippets',
+            component: lazy(() => import('@/pages/Article')),
+          },
           { path: '/', exact: true, redirect: '/welcome' },
           { path: '*', exact: true, redirect: '/exception/404' },
         ]

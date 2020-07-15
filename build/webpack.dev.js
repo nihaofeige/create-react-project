@@ -19,10 +19,18 @@ module.exports = merge(commonConfig, {
         target: 'http://localhost:9000',
         changeOrigin: true,
         secure: false,
-        // pathRewrite: { 
-        //   '^/api': '' 
-        // },
+        pathRewrite: { 
+          '^/api': '' 
+        },
       },
+      '/douban': {
+         target: 'https://read.douban.com',
+         changeOrigin: true,
+         secure: false,
+         pathRewrite: { 
+          '^/douban': '' 
+        },
+      }
     },
   },
   plugins: [new webpack.NamedModulesPlugin(), new webpack.HotModuleReplacementPlugin()],
