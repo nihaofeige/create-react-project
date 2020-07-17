@@ -34,11 +34,32 @@ const config = [
             component: lazy(() => import('@/pages/Table')),
           },
           {
-            path: '/article-details',
-            name: '文章',
-            icon: 'snippets',
-            component: lazy(() => import('@/pages/Article')),
+            path: '/play',
+            name: '玩一玩',
+            icon: 'unordered-list',
+            component: lazy(() => import('@/pages/Play')),
           },
+          {
+            path: '/article',
+            name: '文学',
+            icon: 'snippets',
+            // component: BasicLayout,
+            childRoutes: [
+              {
+                path: '/article/details',
+                name: '文章',
+                icon: 'api',
+                component: lazy(() => import('@/pages/Article')),
+              },
+              {
+                path: '/article/api',
+                name: '详情',
+                icon: 'bulb',
+                component: lazy(() => import('@/pages/Article/Details')),
+              },
+            ]
+          },
+
           { path: '/', exact: true, redirect: '/welcome' },
           { path: '*', exact: true, redirect: '/exception/404' },
         ]

@@ -1,10 +1,10 @@
 .article-details{
 padding: 20px;
-background: #f8f9f9;
-.section-bd{
-  background: #ebf0f2;
-  line-height: 1;
-  padding: 10px;
+background-image: url("https://img1.doubanio.com/view/ark_column_banner/orig/public/29.jpg");
+.article-author {
+  background: #f8f9f9;
+  width: 90%;
+  margin: auto;
 }
 .section-hd {
     // background: #ebf0f2;
@@ -18,21 +18,31 @@ ul, li {
     list-style: none;  
 }
 .chapters{
-   padding: 20px;
+  //  padding: 20px;
 .chapters-ul{
    margin-left: 0px;
    padding: 0px;
+   .section-chapters-bd{
+    padding: 20px;
+    cursor: pointer;
+   }
    .section-chapters-bd:hover{
        background: #ebf0f2;
    }
+   }
+   .lnk-more {
+    color: #389eac;
+    cursor: pointer;
+    text-align: center;
+    margin: 15px;
+}
 }
 .commentCount {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
+   
   .on-sale-time{
     color: #a6a6a6;
     font-size: 12px;
+    float: left;
   }
   .meta-right{
     float: right;
@@ -43,5 +53,165 @@ ul, li {
     margin-left: 10px;
   }
 }
+.section-latest-chapter {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  display: block;
+  background: #ffffe8;
+  color: #000;
+  .label-icon {
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 1;
+    padding: 2px;
+    background: #ff9e2c;
+    color: #fff;
+    border-radius: 2px 2px 0 2px;
+    margin-right: 5px;
+  }
+  .title {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+}
+.header {
+  text-align: center;
+  .author-name {
+    cursor: pointer;
+  }
+}
+}
+.chapter {
+  padding: 20px;
+  background-image: url("https://img1.doubanio.com/view/ark_column_banner/orig/public/29.jpg");
+  .chapters-list {
+    background: #f8f9f9;
+    width: 80%;
+    margin: auto;
+    .chapters-title {
+      text-align: center
+    }
+    .chapter-content {
+      p {
+        line-height: 28px;
+        font-size: 14px;
+      }
+    }
+    .up-down {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      .up-down-title {
+        border-radius: 4px 0 0 4px;
+        padding: 0 10px 0 30px;
+        margin-right: 1px;
+      }
+      .chapters-title {
+        background-color: #fff;
+        color: #000;
+        cursor: pointer;
+      }
+      .chapters-prev {
+        flex: 1;
+        display: block;
+        box-sizing: border-box;
+        height: 40px;
+        line-height: 40px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .chapters-switch{
+        background-color: #ddd;
+        color: #a6a6a6;
+        cursor: default;
+        box-shadow: none;
+      }
+    }
+  }
+  .comment-list {
+    min-height: 200px;
+  }
+}
+.section-bd{
+  background: #ebf0f2;
+  line-height: 1;
+  padding: 10px;
+}
+.recommend-list{
+  overflow: hidden;
+  .worksList--25BFr {
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    white-space: nowrap;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+  }
+  .item--rYmBn {
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    width: 115px;
+    margin-right: 20px;
+  }
+  .cover{
+    margin-bottom: 8px;
+    width: 65px;
+    height: 97.5px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      transition: opacity .5s ease-in;
+      opacity: 1;
+    }
+  }
+  .shadow-cover {
+    position: relative;
+    box-shadow: 1px 1px 2px #aaa;
+    overflow: hidden;
+    border-radius: 3px;
+}
+  .shadow-cover:hover .pic{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.5;
+    // transition: opacity .1s ease-in;
+  }
+  .title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #000;
+  }
+  .author{
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1;
+    color: #a6a6a6;
+    cursor: pointer;
+  }
 }

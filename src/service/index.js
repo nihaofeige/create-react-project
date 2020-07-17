@@ -49,7 +49,7 @@ instance.interceptors.request.use(
             'Cookie': 'bid=YtxbG2GmONQ; douban-fav-remind=1; __gads=ID=e351c563a3447cf5:T=1592205581:S=ALNI_MZ7cZOVKpTOz-Ap080o5x2YpUA3HA; ll="108296"; __utma=30149280.335101779.1579251221.1592205582.1594778798.3; __utmc=30149280; __utmz=30149280.1594778798.3.3.utmcsr=cn.bing.com|utmccn=(referral)|utmcmd=referral|utmcct=/; _ga=GA1.3.335101779.1579251221; _gid=GA1.3.986322080.1594778848; _pk_ref.100001.a7dd=%5B%22%22%2C%22%22%2C1594791685%2C%22https%3A%2F%2Fwww.douban.com%2F%22%5D; _pk_ses.100001.a7dd=*; _gat=1; _pk_id.100001.a7dd=280ae29ea4c830ee.1594778849.3.1594792122.1594782336.'
           }
         : {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Content-Type': 'application/json; charset=UTF-8' ,//'application/x-www-form-urlencoded; charset=UTF-8',
           },
       config.headers,
     );
@@ -127,7 +127,7 @@ const request = async function(opt) {
   options.baseURL = autoMatch(options.prefix);
   try {
     const res = await instance(options);
-    console.log(res,options);
+    // console.log(res,options);
     if (!res && options.ifHandleError) {
       // 自定义参数，是否允许全局提示错误信息
       console.log(".......")

@@ -4,12 +4,11 @@ import { observer } from 'mobx-react';
 const Header = (props) => {
 
     const { author } = props
-    console.log(props, author)
     return (
         <div className="header">
-            <h5>{author.title}</h5>
+            <h3 style={{lineHeight: '40px'}}>{author.title}</h3>
             <div>
-                <img src={author.agent.picture}></img>
+                <img className="author-name" src={author.agent.picture}></img>
                 <p>{author.agent.name}</p>
                 <p>
                     <span>作者简介: </span>

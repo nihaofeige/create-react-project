@@ -1,11 +1,11 @@
 .article-details {
   padding: 20px;
-  background: #f8f9f9;
+  background-image: url("https://img1.doubanio.com/view/ark_column_banner/orig/public/29.jpg");
 }
-.article-details .section-bd {
-  background: #ebf0f2;
-  line-height: 1;
-  padding: 10px;
+.article-details .article-author {
+  background: #f8f9f9;
+  width: 90%;
+  margin: auto;
 }
 .article-details .section-hd {
   line-height: 20px;
@@ -18,26 +18,189 @@
 .article-details li {
   list-style: none;
 }
-.article-details .chapters {
-  padding: 20px;
-}
 .article-details .chapters .chapters-ul {
   margin-left: 0px;
   padding: 0px;
 }
+.article-details .chapters .chapters-ul .section-chapters-bd {
+  padding: 20px;
+  cursor: pointer;
+}
 .article-details .chapters .chapters-ul .section-chapters-bd:hover {
   background: #ebf0f2;
 }
-.article-details .chapters .commentCount .on-sale-time {
+.article-details .chapters .lnk-more {
+  color: #389eac;
+  cursor: pointer;
+  text-align: center;
+  margin: 15px;
+}
+.article-details .commentCount .on-sale-time {
   color: #a6a6a6;
   font-size: 12px;
+  float: left;
 }
-.article-details .chapters .commentCount .meta-right {
+.article-details .commentCount .meta-right {
   float: right;
 }
-.article-details .chapters .commentCount .readCount,
-.article-details .chapters .commentCount .commentCount {
+.article-details .commentCount .readCount,
+.article-details .commentCount .commentCount {
   font-size: 12px;
   color: #a6a6a6;
   margin-left: 10px;
+}
+.article-details .section-latest-chapter {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  display: block;
+  background: #ffffe8;
+  color: #000;
+}
+.article-details .section-latest-chapter .label-icon {
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1;
+  padding: 2px;
+  background: #ff9e2c;
+  color: #fff;
+  border-radius: 2px 2px 0 2px;
+  margin-right: 5px;
+}
+.article-details .section-latest-chapter .title {
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.article-details .header {
+  text-align: center;
+}
+.article-details .header .author-name {
+  cursor: pointer;
+}
+.chapter {
+  padding: 20px;
+  background-image: url("https://img1.doubanio.com/view/ark_column_banner/orig/public/29.jpg");
+}
+.chapter .chapters-list {
+  background: #f8f9f9;
+  width: 80%;
+  margin: auto;
+}
+.chapter .chapters-list .chapters-title {
+  text-align: center;
+}
+.chapter .chapters-list .chapter-content p {
+  line-height: 28px;
+  font-size: 14px;
+}
+.chapter .chapters-list .up-down {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.chapter .chapters-list .up-down .up-down-title {
+  border-radius: 4px 0 0 4px;
+  padding: 0 10px 0 30px;
+  margin-right: 1px;
+}
+.chapter .chapters-list .up-down .chapters-title {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+.chapter .chapters-list .up-down .chapters-prev {
+  flex: 1;
+  display: block;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chapter .chapters-list .up-down .chapters-switch {
+  background-color: #ddd;
+  color: #a6a6a6;
+  cursor: default;
+  box-shadow: none;
+}
+.chapter .comment-list {
+  min-height: 200px;
+}
+.section-bd {
+  background: #ebf0f2;
+  line-height: 1;
+  padding: 10px;
+}
+.recommend-list {
+  overflow: hidden;
+}
+.recommend-list .worksList--25BFr {
+  overflow-y: hidden;
+  overflow-x: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  white-space: nowrap;
+}
+.recommend-list .item--rYmBn {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  width: 115px;
+  margin-right: 20px;
+}
+.recommend-list .cover {
+  margin-bottom: 8px;
+  width: 65px;
+  height: 97.5px;
+  cursor: pointer;
+}
+.recommend-list .cover img {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in;
+  opacity: 1;
+}
+.recommend-list .shadow-cover {
+  position: relative;
+  box-shadow: 1px 1px 2px #aaa;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.recommend-list .shadow-cover:hover .pic {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
+.recommend-list .title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #000;
+}
+.recommend-list .author {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1;
+  color: #a6a6a6;
+  cursor: pointer;
 }
